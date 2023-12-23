@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0b1 (Python 3.10.11 on win32)" generated="2023-12-19T09:55:27.535161" rpa="false" schemaversion="5">
+<suite id="s1" name="QuickStart" source="C:\Users\sgins\OneDrive\Documents\GitHub\QuickStartGuide\QuickStart.rst">
+<kw name="Clear login database" type="SETUP">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2023-12-19T09:55:27.599198" level="INFO" html="true">Removed file '&lt;a href="file://C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt"&gt;C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt&lt;/a&gt;'.</msg>
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2023-12-19T09:55:27.597197" elapsed="0.002001"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:27.596170" elapsed="0.003028"/>
+</kw>
+<test id="s1-t1" name="User can create an account and log in" line="2">
+<kw name="Create valid user">
+<kw name="Create User" owner="LoginLibrary">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:27.601166" elapsed="0.125003"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>SUCCESS</arg>
+<status status="PASS" start="2023-12-19T09:55:27.726169" elapsed="0.000996"/>
+</kw>
+<arg>fred</arg>
+<arg>P4ssw0rd</arg>
+<status status="PASS" start="2023-12-19T09:55:27.601166" elapsed="0.125999"/>
+</kw>
+<kw name="Attempt To Login With Credentials" owner="LoginLibrary">
+<arg>fred</arg>
+<arg>P4ssw0rd</arg>
+<status status="PASS" start="2023-12-19T09:55:27.727165" elapsed="0.123002"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Logged In</arg>
+<status status="PASS" start="2023-12-19T09:55:27.850167" elapsed="0.000995"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2023-12-19T09:55:27.852161" level="INFO" html="true">Removed file '&lt;a href="file://C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt"&gt;C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt&lt;/a&gt;'.</msg>
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2023-12-19T09:55:27.851162" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:27.851162" elapsed="0.000999"/>
+</kw>
+<tag>example</tag>
+<tag>quickstart</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2023-12-19T09:55:27.599198" elapsed="0.252963"/>
+</test>
+<test id="s1-t2" name="User cannot log in with bad password" line="7">
+<kw name="Create valid user">
+<kw name="Create User" owner="LoginLibrary">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:27.854161" elapsed="0.100006"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>SUCCESS</arg>
+<status status="PASS" start="2023-12-19T09:55:27.954167" elapsed="0.000000"/>
+</kw>
+<arg>betty</arg>
+<arg>P4ssw0rd</arg>
+<status status="PASS" start="2023-12-19T09:55:27.854161" elapsed="0.100006"/>
+</kw>
+<kw name="Attempt To Login With Credentials" owner="LoginLibrary">
+<arg>betty</arg>
+<arg>wrong</arg>
+<status status="PASS" start="2023-12-19T09:55:27.955187" elapsed="0.114977"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Access Denied</arg>
+<status status="PASS" start="2023-12-19T09:55:28.070164" elapsed="0.001036"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2023-12-19T09:55:28.073202" level="INFO" html="true">Removed file '&lt;a href="file://C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt"&gt;C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt&lt;/a&gt;'.</msg>
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2023-12-19T09:55:28.072198" elapsed="0.001004"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:28.071200" elapsed="0.002002"/>
+</kw>
+<tag>example</tag>
+<tag>quickstart</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2023-12-19T09:55:27.853161" elapsed="0.220041"/>
+</test>
+<test id="s1-t3" name="User can change password" line="12">
+<kw name="Given a user has a valid account">
+<kw name="Create valid user">
+<kw name="Create User" owner="LoginLibrary">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.077165" elapsed="0.110003"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>SUCCESS</arg>
+<status status="PASS" start="2023-12-19T09:55:28.187168" elapsed="0.000000"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.076166" elapsed="0.111002"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:28.075167" elapsed="0.112001"/>
+</kw>
+<kw name="When she changes her password">
+<kw name="Change Password" owner="LoginLibrary">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<arg>${NEW PASSWORD}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.188167" elapsed="0.118013"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>SUCCESS</arg>
+<status status="PASS" start="2023-12-19T09:55:28.306180" elapsed="0.000988"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:28.188167" elapsed="0.119001"/>
+</kw>
+<kw name="Then she can log in with the new password">
+<kw name="Login">
+<kw name="Attempt To Login With Credentials" owner="LoginLibrary">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.308202" elapsed="0.123964"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Logged In</arg>
+<status status="PASS" start="2023-12-19T09:55:28.432166" elapsed="0.000000"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${NEW PASSWORD}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.308202" elapsed="0.123964"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:28.307168" elapsed="0.124998"/>
+</kw>
+<kw name="And she cannot use the old password anymore">
+<kw name="Attempt To Login With Credentials" owner="LoginLibrary">
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.433166" elapsed="0.129002"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Access Denied</arg>
+<status status="PASS" start="2023-12-19T09:55:28.562168" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:28.433166" elapsed="0.129002"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2023-12-19T09:55:28.564168" level="INFO" html="true">Removed file '&lt;a href="file://C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt"&gt;C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt&lt;/a&gt;'.</msg>
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2023-12-19T09:55:28.563169" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:28.563169" elapsed="0.000999"/>
+</kw>
+<tag>example</tag>
+<tag>quickstart</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2023-12-19T09:55:28.075167" elapsed="0.490009"/>
+</test>
+<test id="s1-t4" name="Invalid password" line="18">
+<kw name="Creating user with invalid password should fail">
+<kw name="Create User" owner="LoginLibrary">
+<arg>example</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.568167" elapsed="0.115999"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Creating user failed: ${error}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.684166" elapsed="0.000000"/>
+</kw>
+<arg>abCD5</arg>
+<arg>${PWD INVALID LENGTH}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.567181" elapsed="0.116985"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<kw name="Create User" owner="LoginLibrary">
+<arg>example</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.685181" elapsed="0.108985"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Creating user failed: ${error}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.794166" elapsed="0.000000"/>
+</kw>
+<arg>abCD567890123</arg>
+<arg>${PWD INVALID LENGTH}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.685181" elapsed="0.109986"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<kw name="Create User" owner="LoginLibrary">
+<arg>example</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.796163" elapsed="0.111999"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Creating user failed: ${error}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.908162" elapsed="0.001007"/>
+</kw>
+<arg>123DEFG</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.795167" elapsed="0.114002"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<kw name="Create User" owner="LoginLibrary">
+<arg>example</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.910168" elapsed="0.109995"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Creating user failed: ${error}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.020163" elapsed="0.000999"/>
+</kw>
+<arg>abcd56789</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+<status status="PASS" start="2023-12-19T09:55:28.909169" elapsed="0.111993"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<kw name="Create User" owner="LoginLibrary">
+<arg>example</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.022162" elapsed="0.105002"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Creating user failed: ${error}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.127164" elapsed="0.001007"/>
+</kw>
+<arg>AbCdEfGh</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.022162" elapsed="0.106009"/>
+</kw>
+<kw name="Creating user with invalid password should fail">
+<kw name="Create User" owner="LoginLibrary">
+<arg>example</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.129169" elapsed="0.110995"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Creating user failed: ${error}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.241162" elapsed="0.000000"/>
+</kw>
+<arg>abCD56+</arg>
+<arg>${PWD INVALID CONTENT}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.128171" elapsed="0.112991"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2023-12-19T09:55:29.243169" level="INFO" html="true">Removed file '&lt;a href="file://C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt"&gt;C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt&lt;/a&gt;'.</msg>
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2023-12-19T09:55:29.242163" elapsed="0.001006"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:29.242163" elapsed="0.001006"/>
+</kw>
+<tag>example</tag>
+<tag>quickstart</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2023-12-19T09:55:28.566169" elapsed="0.677998"/>
+</test>
+<test id="s1-t5" name="User status is stored in database" line="72">
+<kw name="Create valid user">
+<kw name="Create User" owner="LoginLibrary">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.247164" elapsed="0.104015"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>SUCCESS</arg>
+<status status="PASS" start="2023-12-19T09:55:29.352166" elapsed="0.000000"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.246165" elapsed="0.106001"/>
+</kw>
+<kw name="Database Should Contain">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2023-12-19T09:55:29.353162" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt"&gt;C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt&lt;/a&gt;'.</msg>
+<msg time="2023-12-19T09:55:29.360163" level="INFO">${database} = janedoe	J4n3D0e	Inactive
+</msg>
+<var>${database}</var>
+<arg>${DATABASE FILE}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2023-12-19T09:55:29.353162" elapsed="0.007001"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${database}</arg>
+<arg>${username}\t${password}\t${status}\n</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2023-12-19T09:55:29.360163" elapsed="0.000000"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<arg>Inactive</arg>
+<status status="PASS" start="2023-12-19T09:55:29.353162" elapsed="0.007001"/>
+</kw>
+<kw name="Login">
+<kw name="Attempt To Login With Credentials" owner="LoginLibrary">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.361174" elapsed="0.101991"/>
+</kw>
+<kw name="Status Should Be" owner="LoginLibrary">
+<arg>Logged In</arg>
+<status status="PASS" start="2023-12-19T09:55:29.463165" elapsed="0.000000"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2023-12-19T09:55:29.361174" elapsed="0.101991"/>
+</kw>
+<kw name="Database Should Contain">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2023-12-19T09:55:29.464164" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt"&gt;C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt&lt;/a&gt;'.</msg>
+<msg time="2023-12-19T09:55:29.476166" level="INFO">${database} = janedoe	J4n3D0e	Active
+</msg>
+<var>${database}</var>
+<arg>${DATABASE FILE}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2023-12-19T09:55:29.464164" elapsed="0.012002"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${database}</arg>
+<arg>${username}\t${password}\t${status}\n</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2023-12-19T09:55:29.476166" elapsed="0.000000"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<arg>Active</arg>
+<status status="PASS" start="2023-12-19T09:55:29.464164" elapsed="0.012002"/>
+</kw>
+<kw name="Clear login database" type="TEARDOWN">
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2023-12-19T09:55:29.478165" level="INFO" html="true">Removed file '&lt;a href="file://C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt"&gt;C:\Users\sgins\AppData\Local\Temp\robotframework-quickstart-db.txt&lt;/a&gt;'.</msg>
+<arg>${DATABASE FILE}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2023-12-19T09:55:29.477169" elapsed="0.000996"/>
+</kw>
+<status status="PASS" start="2023-12-19T09:55:29.477169" elapsed="0.000996"/>
+</kw>
+<tag>database</tag>
+<tag>quickstart</tag>
+<tag>variables</tag>
+<status status="PASS" start="2023-12-19T09:55:29.245165" elapsed="0.233000"/>
+</test>
+<status status="PASS" start="2023-12-19T09:55:27.538168" elapsed="1.942004"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">database</stat>
+<stat pass="4" fail="0" skip="0">example</stat>
+<stat pass="5" fail="0" skip="0">quickstart</stat>
+<stat pass="4" fail="0" skip="0">smoke</stat>
+<stat pass="1" fail="0" skip="0">variables</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="QuickStart">QuickStart</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
